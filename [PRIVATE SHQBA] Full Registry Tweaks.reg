@@ -1,0 +1,94 @@
+Windows Registry Editor Version 5.00
+
+;; ===================================================================
+;;              БЕЗОПАСНЫЙ И ЭФФЕКТИВНЫЙ ПАК ОПТИМИЗАЦИИ
+;;                      (Основано на твоем файле)
+;; ===================================================================
+
+
+;; === 1. КЛЮЧЕВЫЕ ОПТИМИЗАЦИИ ДЛЯ ПРОИЗВОДИТЕЛЬНОСТИ И ИНПУТ ЛАГА ===
+
+; Оптимизация планировщика процессора для игр
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\PriorityControl]
+"Win32PrioritySeparation"=dword:00000026
+
+; Отключение ограничения сети (Network Throttling)
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Multimedia\SystemProfile]
+"NetworkThrottlingIndex"=dword:ffffffff
+
+; Максимальная отзывчивость системы для игр
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Multimedia\SystemProfile]
+"SystemResponsiveness"=dword:00000000
+
+; Настройка максимального приоритета для игр
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Multimedia\SystemProfile\Tasks\Games]
+"GPU Priority"=dword:00000008
+"Priority"=dword:00000006
+"Scheduling Category"="High"
+"SFIO Priority"="High"
+
+; Отключение троттлинга питания для максимальной производительности
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Power\PowerThrottling]
+"PowerThrottlingOff"=dword:00000001
+
+; Включение аппаратного ускорения GPU (Hardware Accelerated GPU Scheduling)
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\GraphicsDrivers]
+"HwSchMode"=dword:00000002
+
+
+;; === 2. ОТКЛЮЧЕНИЕ НЕНУЖНЫХ И "ТОРМОЗЯЩИХ" КОМПОНЕНТОВ WINDOWS ===
+
+; Полное отключение Xbox Game Bar и фоновой записи (GameDVR)
+[HKEY_CURRENT_USER\System\GameConfigStore]
+"GameDVR_Enabled"=dword:00000000
+"GameDVR_FSEBehaviorMode"=dword:00000002
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\GameDVR]
+"AllowGameDVR"=dword:00000000
+
+[HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\GameDVR]
+"AppCaptureEnabled"=dword:00000000
+
+; Отключение автоматического обслуживания
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Schedule\Maintenance]
+"MaintenanceDisabled"=dword:00000001
+
+; Отключение гибернации и Fast Startup (полезно для стабильности)
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Session Manager\Power]
+"HiberbootEnabled"=dword:00000000
+
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Power]
+"HibernateEnabled"=dword:00000000
+
+; Отключение телеметрии и сбора данных
+[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\DataCollection]
+"AllowTelemetry"=dword:00000000
+
+
+;; === 3. УЛУЧШЕНИЕ ОТЗЫВЧИВОСТИ ИНТЕРФЕЙСА (минимальный эффект) ===
+
+; Убираем задержку при открытии меню
+[HKEY_CURRENT_USER\Control Panel\Desktop]
+"MenuShowDelay"="0"
+
+; Отключаем залипание клавиш и другие "помощники" ввода, которые могут мешать в играх
+[HKEY_CURRENT_USER\Control Panel\Accessibility\StickyKeys]
+"Flags"="506"
+
+[HKEY_CURRENT_USER\Control Panel\Accessibility\ToggleKeys]
+"Flags"="58"
+
+[HKEY_CURRENT_USER\Control Panel\Accessibility\Keyboard Response]
+"Flags"="122"
+
+
+;; === 4. ИСПРАВЛЕННЫЕ И БЕЗОПАСНЫЕ ВЕРСИИ "ПЛОХИХ" ТВИКОВ ===
+
+; UAC - НЕ ОТКЛЮЧЕН, а сделан менее навязчивым. Безопасный компромисс.
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System]
+"PromptOnSecureDesktop"=dword:00000000
+"ConsentPromptBehaviorAdmin"=dword:00000005
+
+; Отключение автоматического поиска драйверов через Windows Update (может предотвратить установку кривых драйверов)
+[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate]
+"ExcludeWUDriversInQualityUpdate"=dword:00000001

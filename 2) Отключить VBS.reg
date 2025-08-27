@@ -1,0 +1,10 @@
+Windows Registry Editor Version 5.00
+
+;; Полностью отключает Безопасность на основе виртуализации (VBS),
+;; включая "Изоляцию ядра" и "Целостность памяти" (HVCI).
+;; Это один из самых эффективных твиков для повышения FPS и 
+;; стабильности в играх на Windows 10/11.
+;; Примечание: снижает уровень системной безопасности.
+
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\DeviceGuard]
+"EnableVirtualizationBasedSecurity"=dword:00000000

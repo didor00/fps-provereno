@@ -1,0 +1,8 @@
+Windows Registry Editor Version 5.00
+
+; Настраивает планировщик так, чтобы 90% зарезервированных
+; ресурсов CPU отдавалось играм, а 10% - фоновым задачам.
+; Отличный баланс производительности и стабильности.
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Multimedia\SystemProfile]
+"SystemResponsiveness"=dword:0000000a

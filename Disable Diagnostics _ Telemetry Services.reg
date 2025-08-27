@@ -1,0 +1,21 @@
+Windows Registry Editor Version 5.00
+
+;; ===================================================================
+;;              БЕЗОПАСНОЕ ОТКЛЮЧЕНИЕ СЛУЖБ ТЕЛЕМЕТРИИ
+;; ===================================================================
+
+;; Отключает основные службы, отвечающие за сбор и отправку
+;; диагностических данных и телеметрии в Microsoft.
+;; Снижает фоновую активность и повышает приватность.
+
+; Connected User Experiences and Telemetry
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\DiagTrack]
+"Start"=dword:00000004
+
+; dmwappushservice
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\dmwappushservice]
+"Start"=dword:00000004
+
+; Microsoft (R) Diagnostics Hub Standard Collector Service
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\diagnosticshub.standardcollector.service]
+"Start"=dword:00000004

@@ -1,0 +1,18 @@
+Windows Registry Editor Version 5.00
+
+;; ===================================================================
+;;              УСКОРЕНИЕ ВЫКЛЮЧЕНИЯ/ПЕРЕЗАГРУЗКИ WINDOWS
+;; ===================================================================
+
+;; Уменьшает время ожидания для зависших СЛУЖБ с 5 до 2 секунд.
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control]
+"WaitToKillServiceTimeout"="2000"
+
+
+;; Уменьшает время ожидания для зависших ПРОГРАММ с 20 до 2 секунд.
+[HKEY_CURRENT_USER\Control Panel\Desktop]
+"WaitToKillAppTimeout"="2000"
+
+;; Автоматически закрывает зависшие программы без вопроса.
+[HKEY_CURRENT_USER\Control Panel\Desktop]
+"AutoEndTasks"="1"
